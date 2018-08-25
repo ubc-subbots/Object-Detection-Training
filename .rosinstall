@@ -1,0 +1,11 @@
+# IT IS UNLIKELY YOU WANT TO EDIT THIS FILE BY HAND,
+# UNLESS FOR REMOVING ENTRIES.
+# IF YOU WANT TO CHANGE THE ROS ENVIRONMENT VARIABLES
+# USE THE rosinstall TOOL INSTEAD.
+# IF YOU CHANGE IT, USE rosinstall FOR THE CHANGES TO TAKE EFFECT
+- git: {local-name: external_pkg/darknet_ros, uri: 'https://github.com/leggedrobotics/darknet_ros.git'}
+- git: {local-name: external_pkg/tensorflow_object_detector, uri: 'https://github.com/osrf/tensorflow_object_detector.git'}
+- git: {local-name: external_pkg/usb_cam, uri: 'https://github.com/ros-gbp/usb_cam-release.git',
+    version: release/kinetic/usb_cam/0.3.5-0}
+- git: {local-name: external_pkg/video_stream_opencv, uri: 'https://github.com/ros-drivers/video_stream_opencv.git'}
+- git: {local-name: external_pkg/vision_msgs, uri: 'https://github.com/Kukanani/vision_msgs.git'}
