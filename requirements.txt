@@ -3,7 +3,9 @@ astor==0.7.1
 backports.functools-lru-cache==1.5
 backports.weakref==1.0.post1
 catkin-pkg==0.4.8
+contextlib2
 cycler==0.10.0
+Cython
 docutils==0.14
 empy==3.3.2
 enum34==1.1.6
@@ -11,7 +13,9 @@ funcsigs==1.0.2
 futures==3.2.0
 gast==0.2.0
 grpcio==1.14.1
+jupyter
 kiwisolver==1.0.1
+lxml
 Markdown==2.6.11
 matplotlib==2.2.3
 mock==2.0.0
@@ -25,6 +29,7 @@ python-dateutil==2.7.3
 pytz==2018.5
 PyYAML==3.13
 rospkg==1.1.7
+setuptools==39.1.0
 six==1.11.0
 subprocess32==3.5.2
 tensorboard==1.10.0
