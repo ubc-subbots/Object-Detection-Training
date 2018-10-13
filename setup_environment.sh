@@ -43,17 +43,14 @@ virtualenv subbots_python
 source $CURR_DIR/subbots_python/bin/activate
 pip install -r $CURR_DIR/requirements.txt
 
-wget -O models/research/protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
-unzip models/research/protobuf.zip -d models/research
+wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
+unzip -o protobuf.zip
 
-./bin/protoc models/research/object_detection/protos/*.proto --python_out=/models/research
+./bin/protoc models/research/object_detection/protos/*.proto --python_out=models/research
+
+rm -r $CURR_DIR/protobuf.zip $CURR_DIR/bin $CURR_DIR/include
 
 export PYTHONPATH=$PYTHONPATH:$CURR_DIR/models/research:$CURR_DIR/models/research/slim
 
-
-
 #Testing installation
-python $CURR_DIR/research/object_detection/builders/model_builder_test.py
-
-
-
+python $CURR_DIR/models/research/object_detection/builders/model_builder_test.py
