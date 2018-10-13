@@ -1,16 +1,5 @@
 subbots_python/
 
-build/
-devel/
-install/
-external_pkg/
-
-.rosinstall.bak
-
-setup.*
-
-.catkin_workspace
-
 .idea
 
 
