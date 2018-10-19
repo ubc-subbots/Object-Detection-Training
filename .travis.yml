@@ -5,7 +5,8 @@ python:
 install:
   - ./setup_environment.sh
 # command to run tests
-
+before_script:
+  - source subbots_python/bin/activate
 script:
   - python models/research/object_detection/builders/model_builder_test.py
 
