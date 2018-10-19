@@ -3,10 +3,9 @@ python:
   - "2.7"
 # command to install dependencies
 install:
-  - pip install -r requirements.txt
+  - ./setup_environment.sh
 # command to run tests
-before_script:
-  - export PYTHONPATH=$PYTHONPATH:models/research:models/research/slim
+
 script:
   - python models/research/object_detection/builders/model_builder_test.py
 
