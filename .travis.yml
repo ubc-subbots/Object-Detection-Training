@@ -7,7 +7,7 @@ install:
 # command to run tests
 before_script:
   - source subbots_python/bin/activate
-  - $(shell export PYTHONPATH=$PYTHONPATH:$(pwd)/models/research:$(pwd)/models/research/slim)
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)/models/research:$(pwd)/models/research/slim
 script:
   - python models/research/object_detection/builders/model_builder_test.py
 
