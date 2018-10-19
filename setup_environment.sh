@@ -46,9 +46,9 @@ pip install -r $CURR_DIR/requirements.txt
 wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
 unzip -o protobuf.zip
 
-./bin/protoc models/research/object_detection/protos/*.proto --python_out=models/research
+./bin/protoc models/research/object_detection/protos/*.proto --python_out=models/research --proto_path=models/research
 
-rm -r $CURR_DIR/protobuf.zip $CURR_DIR/bin $CURR_DIR/include
+rm -r $CURR_DIR/protobuf.zip $CURR_DIR/bin $CURR_DIR/include $CURR_DIR/readme
 
 export PYTHONPATH=$PYTHONPATH:$CURR_DIR/models/research:$CURR_DIR/models/research/slim
 
