@@ -1,5 +1,5 @@
-# Jormungandr
-Main Machine Learning Training Repository for Subbots
+# UBC Subbots Object Detection Training Repository
+Main Tensorflow Training Repository for Subbots
 
 ## Table of Contents
 - [Setup](#setup)
