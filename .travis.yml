@@ -1,0 +1,14 @@
+language: python
+python:
+  - "2.7"
+# command to install dependencies
+install:
+  - ./setup_environment.sh
+# command to run tests
+before_script:
+  - source subbots_python/bin/activate
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)/models/research:$(pwd)/models/research/slim
+script:
+  - python models/research/object_detection/builders/model_builder_test.py
+
+

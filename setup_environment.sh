@@ -48,7 +48,7 @@ unzip -o protobuf.zip
 
 ./bin/protoc models/research/object_detection/protos/*.proto --python_out=models/research --proto_path=models/research
 
-rm -r $CURR_DIR/protobuf.zip $CURR_DIR/bin $CURR_DIR/include $CURR_DIR/readme
+rm -r $CURR_DIR/protobuf.zip $CURR_DIR/bin $CURR_DIR/include $CURR_DIR/readme.txt
 
 export PYTHONPATH=$PYTHONPATH:$CURR_DIR/models/research:$CURR_DIR/models/research/slim
 
