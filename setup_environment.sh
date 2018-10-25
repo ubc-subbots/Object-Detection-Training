@@ -41,7 +41,7 @@ done
 
 #Installing python dependencies
 sudo apt-get update
-sudo apt-get install -y virtualenv
+sudo apt-get install -y python-virtualenv
 
 virtualenv subbots_python
 source $CURR_DIR/subbots_python/bin/activate
