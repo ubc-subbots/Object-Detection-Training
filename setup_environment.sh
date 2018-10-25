@@ -3,6 +3,9 @@
 # The current directory
 CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+#Error and exit if anything fails
+set -e
+
 echo "================================================================"
 echo "Setup .bashrc"
 echo "================================================================"
@@ -37,7 +40,8 @@ do
 done
 
 #Installing python dependencies
-pip install virtualenv
+
+sudo apt-get install -y virtualenv
 
 virtualenv subbots_python
 source $CURR_DIR/subbots_python/bin/activate
