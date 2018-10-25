@@ -40,7 +40,7 @@ do
 done
 
 #Installing python dependencies
-
+sudo apt-get update
 sudo apt-get install -y virtualenv
 
 virtualenv subbots_python
