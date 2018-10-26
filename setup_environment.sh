@@ -3,6 +3,9 @@
 # The current directory
 CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+#Error and exit if anything fails
+set -e
+
 echo "================================================================"
 echo "Setup .bashrc"
 echo "================================================================"
@@ -37,7 +40,8 @@ do
 done
 
 #Installing python dependencies
-pip install virtualenv
+sudo apt-get update
+sudo apt-get install -y python-virtualenv
 
 virtualenv subbots_python
 source $CURR_DIR/subbots_python/bin/activate
@@ -51,6 +55,12 @@ unzip -o protobuf.zip
 rm -r $CURR_DIR/protobuf.zip $CURR_DIR/bin $CURR_DIR/include $CURR_DIR/readme.txt
 
 export PYTHONPATH=$PYTHONPATH:$CURR_DIR/models/research:$CURR_DIR/models/research/slim
+
+wget https://www.dropbox.com/s/u2w40r3ye13us20/linux_v1.4.0.zip
+
+unzip -o linux_v1.4.0.zip
+
+rm -r linux_v1.4.0.zip
 
 #Testing installation
 python $CURR_DIR/models/research/object_detection/builders/model_builder_test.py
