@@ -1,12 +1,7 @@
+# Written By: Michael Milic
+# Date: Nov 15th, 2018
+# Description:  This script will take the csv input file and from it will create generate a tf records file. 
 
-"""
-Usage:
-  # From tensorflow/models/
-  # Create train data:
-  python generate_tfrecord.py --csv_input=data/train_labels.csv  --output_path=train.record
-  # Create test data:
-  python generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=test.record
-"""
 from __future__ import division
 from __future__ import print_function
 from __future__ import absolute_import
