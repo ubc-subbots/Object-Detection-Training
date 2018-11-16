@@ -1,3 +1,7 @@
+# Written By: Jodi Gunawan
+# Date: Nov 15th, 2018
+# Description:  This script creates csv file from xml input file under the file train_labels
+
 import os
 import glob
 import pandas as pd
