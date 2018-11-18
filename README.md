@@ -18,12 +18,8 @@ tensorflow api, run 'source subbots_python/bin/activate'.
 
 ## Code Conventions
 
-There is a sample file in scripts/sample_package, please reference this file and follow the coding conventions in
-the file.
-
-
-
-Source files should adhere the following documentation standards.
+Source files should adhere to the following documentation standards. There is a sample file in  
+scripts/sample_package/sample_py.py for reference.
 
 ````
 
