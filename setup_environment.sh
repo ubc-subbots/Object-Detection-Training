@@ -43,7 +43,10 @@ done
 sudo apt-get update
 sudo apt-get install -y python-virtualenv
 
-virtualenv subbots_python
+if [ ! -d $CURR_DIR/subbots_python ]; then
+    virtualenv subbots_python
+fi
+
 source $CURR_DIR/subbots_python/bin/activate
 pip install -r $CURR_DIR/requirements.txt
 
