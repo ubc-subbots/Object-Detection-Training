@@ -16,7 +16,7 @@ Clone repository with 'git clone --recursive https://github.com/ubc-subbots/Obje
 To install the dependencies of the repository, run the ./setup_environment.sh script. Anytime you want to use the
 tensorflow api, run 'source subbots_python/bin/activate'.
 
-##Code Standards
+## Code Conventions
 
 There is a sample file in scripts/sample_package, please reference this file and follow the coding conventions in
 the file.
