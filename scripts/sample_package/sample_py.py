@@ -34,3 +34,4 @@ def bar(baz):
 if __name__ == '__main__':
     f = Foo('John Doe', 42)
     bar("hello world")
+    
