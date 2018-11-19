@@ -13,13 +13,11 @@ Main Tensorflow Training Repository for Subbots
 
 Clone repository with 'git clone --recursive https://github.com/ubc-subbots/Object-Detection-Training'
 
-To install the dependencies of the repository, run the ./setup_environment.sh script. Anytime you want to use the
-tensorflow api, run 'source subbots_python/bin/activate'.
+To install the dependencies of the repository, run the ./setup_environment.sh script. Anytime you want to use the tensorflow api, run 'source subbots_python/bin/activate'.
 
 ## Code Conventions
 
-Source files should adhere to the following documentation standards. There is a sample file in  
-scripts/sample_package/sample_py.py for reference.
+Source files should adhere to the following documentation standards. There is a sample file in scripts/sample_package/sample_py.py for reference.
 
 ````
 
