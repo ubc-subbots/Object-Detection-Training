@@ -20,7 +20,7 @@ class Foo(object):
 
         :param name: The name of foo
         :param age: The ageof foo
-        :return: returns nothing
+        :return: nothing
         """
         self.name = name
         self.age = age
