@@ -16,7 +16,6 @@ args = parser.parse_args()
 
 def xml_to_csv(path):
     xml_list = []
-    print(glob.glob(path + '/*.xml'))
     for xml_file in glob.glob(path + '/*.xml'):
         tree = ET.parse(xml_file)
         root = tree.getroot()
@@ -38,11 +37,9 @@ def xml_to_csv(path):
 
 def main():
     os.chdir('../../data')
-    print(os.getcwd())
     if args.train_or_test == 'train':
         for directory in ['train_labels']:
             image_path = os.path.join(os.getcwd(), format(directory))
-            print(image_path)
             xml_df = xml_to_csv(image_path)
             xml_df.to_csv('{}.csv'.format(directory), index=None)
             print('Successfully converted xml to csv.')
