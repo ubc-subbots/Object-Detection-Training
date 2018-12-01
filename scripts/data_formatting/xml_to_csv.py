@@ -1,3 +1,4 @@
+
 # Written By: Jodi Gunawan
 # Date: Nov 15th, 2018
 # Description:  This script creates csv file from xml input file under the file train_labels
@@ -6,10 +7,16 @@ import os
 import glob
 import pandas as pd
 import xml.etree.ElementTree as ET
+import argparse
 
+parser = argparse.ArgumentParser(description='This script creates csv file from xml input file under the file train_labels')
+parser.add_argument('--train_or_test', help='Enter train or test depending on whether you are looking in folder train_labels or test_labels')
+
+args = parser.parse_args()
 
 def xml_to_csv(path):
     xml_list = []
+    print(glob.glob(path + '/*.xml'))
     for xml_file in glob.glob(path + '/*.xml'):
         tree = ET.parse(xml_file)
         root = tree.getroot()
@@ -30,11 +37,22 @@ def xml_to_csv(path):
 
 
 def main():
-    for directory in ['train_labels']:
-        image_path = os.path.join(os.getcwd(), 'images/train_labels/{}'.format(directory)) 
-        xml_df = xml_to_csv(image_path)
-        xml_df.to_csv('data/{}_converted.csv'.format(directory), index=None)
-        print('Successfully converted xml to csv.')
+    os.chdir('../../data')
+    print(os.getcwd())
+    if args.train_or_test == 'train':
+        for directory in ['train_labels']:
+            image_path = os.path.join(os.getcwd(), format(directory))
+            print(image_path)
+            xml_df = xml_to_csv(image_path)
+            xml_df.to_csv('{}.csv'.format(directory), index=None)
+            print('Successfully converted xml to csv.')
 
+    if args.train_or_test == 'test':
+        for directory in ['test_labels']:
+            image_path = os.path.join(os.getcwd(),format(directory))
+            xml_df = xml_to_csv(image_path)
+            xml_df.to_csv('data/{}.csv'.format(directory), index=None)
+            print('Successfully converted xml to csv.')
 
-main()
+if __name__ == '__main__':
+    main()
