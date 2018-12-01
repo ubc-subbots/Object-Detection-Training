@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 import argparse
 
 parser = argparse.ArgumentParser(description='This script creates csv file from xml input file under the file train_labels')
-parser.add_argument('--train_or_test', help='Enter train or test depending on whether you are looking in folder train_labels or test_labels')
+parser.add_argument('--train_or_test', required=True, help='Enter train or test depending on whether you are looking in folder train_labels or test_labels')
 
 args = parser.parse_args()
 

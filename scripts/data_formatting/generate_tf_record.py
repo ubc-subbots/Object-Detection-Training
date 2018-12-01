@@ -8,6 +8,7 @@ from __future__ import absolute_import
 
 import os
 import io
+import argparse
 import pandas as pd
 import tensorflow as tf
 
@@ -15,11 +16,12 @@ from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
 
-flags = tf.app.flags
-flags.DEFINE_string('csv_input', '', 'Path to the CSV input')
-flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
-FLAGS = flags.FLAGS
+parser = argparse.ArgumentParser(description='This script will take the csv input file and from it will create generate a tf records file.')
+parser.add_argument('--csv_input',  required=True, help='Path to the CSV input')
+parser.add_argument('--output_path', required=True, help='Path to output TFRecord')
+parser.add_argument('--train_or_test', required=True, help='Enter train or test depending on whether you are looking in folder train_labels or test_labels')
 
+args = parser.parse_args()
 
 # this function checks takes a row label as input, and returns true if the row label is 'Gate'
 def class_text_to_int(row_label):
@@ -76,19 +78,24 @@ def create_tf_records_images(group, path):
     return tf_record_image
 
 
-def main(_):
-    writer = tf.python_io.TFRecordWriter(FLAGS.output_path)
-    path = os.path.join(os.getcwd(), 'data/train_images')
-    examples = pd.read_csv(FLAGS.csv_input)
+def main():
+    writer = tf.python_io.TFRecordWriter(args.output_path)
+    os.chdir('../../data')
+    path = ''
+    if args.train_or_test == 'train':
+        path = os.path.join(os.getcwd(), 'train_images')
+    if args.train_or_test == 'test':
+        path = os.path.join(os.getcwd(), 'test_images')
+    examples = pd.read_csv(args.csv_input)
     grouped = split(examples, 'filename')
     for group in grouped:
-        tf_record_image = create_tf_records_images(group, path)     # changed function name to match the actual actual (create_tf_example to create_tf_records_images)
+        tf_record_image = create_tf_records_images(group, path)     # changed function name to match the actual (create_tf_example to create_tf_records_images)
         writer.write(tf_record_image.SerializeToString()) 
 
     writer.close()
-    output_path = os.path.join(os.getcwd(), FLAGS.output_path)
+    output_path = os.path.join(os.getcwd(), args.output_path)
     print('Successfully created the TFRecords: {}'.format(output_path))
 
 
 if __name__ == '__main__':
-    tf.app.run()    #app function comes from one of the libraries imported at the top of file
+    main()
