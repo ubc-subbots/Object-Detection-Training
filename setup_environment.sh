@@ -43,24 +43,27 @@ done
 sudo apt-get update
 sudo apt-get install -y python-virtualenv
 
-virtualenv subbots_python
+#Check if virtual environment is already created
+if [ ! -d $CURR_DIR/subbots_python ]; then
+    virtualenv subbots_python
+fi
+
+#Source virtual environment and install necessary packages
 source $CURR_DIR/subbots_python/bin/activate
 pip install -r $CURR_DIR/requirements.txt
 
+#Download protobuf and compile libraries inside object_detection package
 wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
 unzip -o protobuf.zip
-
 ./bin/protoc models/research/object_detection/protos/*.proto --python_out=models/research --proto_path=models/research
-
 rm -r $CURR_DIR/protobuf.zip $CURR_DIR/bin $CURR_DIR/include $CURR_DIR/readme.txt
 
 export PYTHONPATH=$PYTHONPATH:$CURR_DIR/models/research:$CURR_DIR/models/research/slim
 
+#Fetch labelImg binary
 wget https://www.dropbox.com/s/u2w40r3ye13us20/linux_v1.4.0.zip
-
 unzip -o linux_v1.4.0.zip
-
 rm -r linux_v1.4.0.zip
 
-#Testing installation
+#Test installation
 python $CURR_DIR/models/research/object_detection/builders/model_builder_test.py

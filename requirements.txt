@@ -11,4 +11,5 @@ setuptools==39.1.0
 tensorboard==1.10.0
 tensorflow==1.10.0
 tornado==4.*
+pandas==0.23.4
 
