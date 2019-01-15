@@ -36,7 +36,8 @@ def xml_to_csv(path):
 
 
 def main():
-    os.chdir('../../data')
+    data_path = "../../data"
+    os.chdir(data_path)
     if args.train_or_test == 'train':
         for directory in ['train_labels']:
             image_path = os.path.join(os.getcwd(), format(directory))
@@ -48,7 +49,7 @@ def main():
         for directory in ['test_labels']:
             image_path = os.path.join(os.getcwd(),format(directory))
             xml_df = xml_to_csv(image_path)
-            xml_df.to_csv('data/{}.csv'.format(directory), index=None)
+            xml_df.to_csv('{}.csv'.format(directory), index=None)
             print('Successfully converted xml to csv.')
 
 if __name__ == '__main__':
