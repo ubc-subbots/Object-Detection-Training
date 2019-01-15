@@ -5,6 +5,7 @@ Main Tensorflow Training Repository for Subbots
 - [Setup](#setup)
   - [Install](#install)
 - [Coding Conventions](#code-conventions)
+- [Testing](#testing)
 
 
 ## Setup 
@@ -61,6 +62,23 @@ if __name__ == '__main__':
     
 ````
 
+## Testing
+
+All files should have unit tests written using the pytest convention (https://docs.pytest.org/en/latest/#). A proper test function begins with test_* and is placed in a file in the test folder.
+
+````
+import pytest
+
+class TestClass(object):
+    def test_one(self):
+        x = "this"
+        assert 'h' in x
+
+    def test_two(self):
+        x = "hello"
+        assert hasattr(x, 'check')
+ 
+ ````
 
 
 
