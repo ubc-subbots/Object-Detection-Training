@@ -10,6 +10,6 @@ before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/models/research:$(pwd)/models/research/slim
 script:
   - python models/research/object_detection/builders/model_builder_test.py
-  - pytest tests/scripts/xml_to_csv_test.py
+  - pytest tests
 
 

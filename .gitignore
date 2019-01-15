@@ -3,6 +3,9 @@ linux_v1.4.0/
 
 data/test_labels.csv
 
+**/__pycache__
+
+
 .idea
 
 
