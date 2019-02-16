@@ -1,5 +1,6 @@
 subbots_python/
 linux_v1.4.0/
+data/models/ssd_mobilenet_v1_coco_2018_01_28.tar.gz
 
 .idea
 
