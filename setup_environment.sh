@@ -41,7 +41,8 @@ done
 
 #Installing python dependencies
 sudo apt-get update
-sudo apt-get install -y python-virtualenv
+sudo apt-get install -y python-virtualenv/
+gsutil
 
 #Check if virtual environment is already created
 if [ ! -d $CURR_DIR/subbots_python ]; then
